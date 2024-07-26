@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <link rel="stylesheet" href="./home_page.css">
+</head>
+<body>
+    <header>
+        <h1>Book Store</h1>
+    </header>
+    <main>
+        <section class="feature" id="book-reviews">
+            <h2>Book Reviews</h2>
+            <p>Read reviews of the latest and greatest books from a wide variety of genres.</p>
+            <button onclick="showBookDetails()">Read Reviews</button>
+        </section>
+        <section class="feature" id="write-review">
+            <h2>Write a Book Review</h2>
+            <p>Share your thoughts and opinions on books you've read.</p>
+            <button onclick="showReviewForm()">Write a Review</button>
+        </section>
+        <section class="feature" id="top-rated">
+            <h2>Top Rated Books with Links to Buy</h2>
+            <p>Discover the top-rated books and find out where you can purchase them.</p>
+            <a href="#" onclick="showTopRatedBooks()">View Top Rated Books</a>
+        </section>
+    </main>
+
+    <div id="reviewForm" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeReviewForm()">&times;</span>
+            <h2>Add Your Review</h2>
+            <form id="reviewFormContent">
+                <label for="bookName">Book Name:</label>
+                <input type="text" id="bookName" name="bookName" required>
+
+                <label for="bookImage">Book Image URL:</label>
+                <input type="url" id="bookImage" name="bookImage" required>
+
+                <label for="bookReview">Your Review:</label>
+                <textarea id="bookReview" name="bookReview" required></textarea>
+
+                <label for="bookRating">Rating:</label>
+                <input type="number" id="bookRating" name="bookRating" min="1" max="5" required>
+
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="bookDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookDetails()">&times;</span>
+            <h2>Book Details</h2>
+            <div id="bookDetails">
+                <!-- Book details will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <div id="bookDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookDetail()">&times;</span>
+            <h2 id="bookTitle">Book Title</h2>
+            <img id="bookCover" src="" alt="Book Cover" style="width: 150px;">
+            <p id="bookDescription">Book Description</p>
+            <a id="buyLink" href="#" target="_blank">Buy Now</a>
+        </div>
+    </div>
+
+    <script src="./home_page.js"></script>
+    <script src="./viewTopRatedBooks.js"></script>
+</body>
+</html>

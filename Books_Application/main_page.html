@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Website - Sign Up / Sign In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lavender;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 450px; /* Increased width */
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px; /* Increased font size */
+        }
+        input {
+            width: 100%;
+            padding: 15px; /* Increased padding */
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px; /* Increased font size */
+        }
+        button {
+            width: 100%;
+            padding: 15px; /* Increased padding */
+            background-color: #5a67d8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px; /* Increased font size */
+        }
+        button:hover {
+            background-color: #434190;
+        }
+        .toggle-link {
+            color: #5a67d8;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 10px;
+            display: block;
+            font-size: 16px; /* Increased font size */
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="sign-up-form">
+            <h2>Sign Up</h2>
+            <input type="text" id="signup-username" placeholder="Username">
+            <div class="error" id="signup-username-error"></div>
+            <input type="email" id="signup-email" placeholder="Email">
+            <div class="error" id="signup-email-error"></div>
+            <input type="password" id="signup-password" placeholder="Password">
+            <div class="error" id="signup-password-error"></div>
+            <button onclick="validateSignUp()">Sign Up</button>
+            <span class="toggle-link" onclick="toggleForms()">Already have an account? Sign In</span>
+        </div>
+        <div id="sign-in-form" style="display: none;">
+            <h2>Sign In</h2>
+            <input type="email" id="signin-email" placeholder="Email">
+            <div class="error" id="signin-email-error"></div>
+            <input type="password" id="signin-password" placeholder="Password">
+            <div class="error" id="signin-password-error"></div>
+            <button onclick="validateSignIn()">Sign In</button>
+            <span class="toggle-link" onclick="toggleForms()">Don't have an account? Sign Up</span>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms() {
+            const signUpForm = document.getElementById('sign-up-form');
+            const signInForm = document.getElementById('sign-in-form');
+            if (signUpForm.style.display === 'none') {
+                signUpForm.style.display = 'block';
+                signInForm.style.display = 'none';
+            } else {
+                signUpForm.style.display = 'none';
+                signInForm.style.display = 'block';
+            }
+        }
+    
+        function validateSignUp() {
+            const username = document.getElementById('signup-username').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+    
+            let isValid = true;
+    
+            if (username === "") {
+                document.getElementById('signup-username-error').textContent = "Username is required.";
+                isValid = false;
+            } else {
+                document.getElementById('signup-username-error').textContent = "";
+            }
+    
+            if (email === "") {
+                document.getElementById('signup-email-error').textContent = "Email is required.";
+                isValid = false;
+            } else {
+                document.getElementById('signup-email-error').textContent = "";
+            }
+    
+            if (password === "") {
+                document.getElementById('signup-password-error').textContent = "Password is required.";
+                isValid = false;
+            } else {
+                document.getElementById('signup-password-error').textContent = "";
+            }
+    
+            if (isValid) {
+                // Redirect to home page
+                window.location.href = 'home_page.html';
+            }
+        }
+    
+        function validateSignIn() {
+            const email = document.getElementById('signin-email').value;
+            const password = document.getElementById('signin-password').value;
+    
+            let isValid = true;
+    
+            if (email === "") {
+                document.getElementById('signin-email-error').textContent = "Email is required.";
+                isValid = false;
+            } else {
+                document.getElementById('signin-email-error').textContent = "";
+            }
+    
+            if (password === "") {
+                document.getElementById('signin-password-error').textContent = "Password is required.";
+                isValid = false;
+            } else {
+                document.getElementById('signin-password-error').textContent = "";
+            }
+    
+            if (isValid) {
+                // Redirect to home page
+                window.location.href = 'home_page.html';
+            }
+        }
+    </script>
+    
+</body>
+</html>
